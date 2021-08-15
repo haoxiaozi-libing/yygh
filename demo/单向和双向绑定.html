@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="../vue.min.js"></script>
+<body>
+
+    <div style="color: blueviolet;">这个不知道啥颜色</div>
+    <br/>
+    <div id="app" :style="msg"> 这是一红色个代码块
+    <input type="text" :value="keywork"></input>
+    <br/>
+    <input type="text" v-model="keywork"></input>
+    </div>
+    <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    msg:'color:green;',
+                    keywork:"哈哈哈哈"
+                }
+            })
+    </script>
+</body>
+
+</html>

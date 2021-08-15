@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script src="../../vue.min.js"></script>
+<script src="../../axios.min.js"></script>
+
+<body>
+    <div id="app">
+        <table border="2">
+            <tr v-for="user in userlist" >
+               <td>{{user.name}}</td> 
+               <td>{{user.age}}</td> 
+            </tr>
+
+        </table>
+
+
+       </tr>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                userlist:[]
+            },
+            methods:{
+                getlist(){
+                    axios.get("userlist.json")
+                    .then(response=>{ // 请求成功
+                        
+                        this.userlist=response.data.data.items;
+                        console.log(this.userlist)
+                    })
+                    .catch(response=>{ // 请求失败
+                        console.log("请求失败")
+                    })
+                }
+            },
+            created(){
+                this.getlist();
+            }
+        })
+    </script>
+</body>
+
+</html>
